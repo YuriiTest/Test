@@ -4,7 +4,7 @@ Complete all the tasks listed below. Create a local Mercurial repository and com
 during development. After completing all tasks, compress all files including ‘.hg’ folder into a zip
 archive and send it back to us.
 
-### Task 1
+## Task 1
 
 Create a basic django project that would present your name, surname, birthdate, bio, contacts on the
 main page. Data should be stored in the database. Use:
