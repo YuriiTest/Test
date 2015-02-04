@@ -19,6 +19,11 @@ main page. Data should be stored in the database. Use:
 Create middleware that stores all http requests into the database. Also, on a separate page show first
 10 http requests that are stored by middleware.
 
+```python
+s = "Python syntax highlighting"
+print s
+```
+
 ## Task 3
 
 Create template­context­processor that adds django.settings to the context.
