@@ -23,8 +23,6 @@ Create middleware that stores all http requests into the database. Also, on a se
 
 Create template­context­processor that adds django.settings to the context.
 
-asd
-
 ## Task 4
 
 Create page with form that allows to edit data, presented on the main page.
