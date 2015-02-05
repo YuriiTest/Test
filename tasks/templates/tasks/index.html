@@ -1,0 +1,43 @@
+{% extends "tasks/base.html" %}
+{% block content %}
+    <div class="row">
+        <div class="col-md-offset-2 col-md-8 col-lg-offset-3 col-lg-6">
+            <div class="well profile">
+                <div class="col-sm-12">
+                    {% for info in data %}
+                        <div class="col-xs-12 col-sm-8">
+                            <h1>{{ info.first_name }} {{ info.last_name }}</h1>
+                            <p><strong>Date Of Birth: </strong></p>
+                            <p>{{ info.birth_date }}</p>
+                            <p><strong>Bio:</strong></p>
+                            <p><span>{{ info.bio }}</span></p>
+                            <p><strong>Home Address:</strong></p>
+                            <p><span>{{ info.address }}</span></p>
+                            <p><strong>Email Address:</strong></p>
+                            <p><span>{{ info.email }}</span></p>
+                            <p><strong>Phone Number:</strong></p>
+                            <p>{{ info.phone }}</p>
+                        </div>
+                        <div class="col-xs-12 col-sm-4 text-center">
+                            <figure>
+                                {% if info.photo %}
+                                    <img width="250" src="{{ MEDIA_URL }}{{ info.photo }}" alt="" class="img-thumbnail img-responsive">
+                                {% else %}
+                                    <img width="250" src="{{ data.model.photo }}" alt="" class="img-thumbnail img-responsive">
+                                {% endif %}
+                            </figure>
+                        </div>
+                    {% endfor %}
+                </div>
+                <div class="col-xs-12 text-center">
+                    <div class="col-xs-12 col-sm-6 emphasis">
+                        <a href="/tasks/edit/" class="btn btn-warning btn-block">EDIT INFORMATION</a>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 emphasis">
+                        <a href="/tasks/view_requests/" class="btn btn-info btn-block">VIEW HTTP REQUESTS</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

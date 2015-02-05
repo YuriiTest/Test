@@ -1,0 +1,74 @@
+{% extends "tasks/base.html" %}
+{% load widget_tweaks %}
+{% block content %}
+{{form.media}}
+    <div class="row">
+        <div class="col-md-offset-2 col-md-8 col-lg-offset-3 col-lg-6">
+            <div class="well profile">
+                <div class="col-xs-12 col-sm-12">
+                    <p class="a_left">Hello, {{ user }}.</p>
+                    <p class="a_right"><a href="/tasks/logout/">Logout</a></p>
+                </div>
+                {% include "tasks/image_upload.html" %}
+                <form action="/tasks/edit/" method="POST">
+                    {% csrf_token %}
+                    <div class="col-xs-12 text-center" >
+                        <div class="col-sm-12">
+                            <select class="form-control" id="id_select" name="photo" onchange="PreviewImageSelect()">
+                                <option value="{{ form.photo.value }}">Select existing photo ...</option>
+                                {% for img in images %}
+                                    <option value="{{ img.photo.name }}">{{ img.photo.name }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                    </div>
+                    {% if form.errors %}
+                        <div class="col-xs-12 text-center">
+                            <div class="col-sm-12">
+                                <div class="alert alert-danger" role="alert" id="alert_error">
+                                    {% for field in form %}
+                                        {% if field.errors %}
+                                            Problem with "{{ field.name }}" - {{ field.errors|striptags }} <br/>
+                                        {% endif %}
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                    {% endif %}
+                    <div class="col-sm-12">
+                        <div class="col-xs-12 col-sm-6">
+                            <label>First Name: </label>
+                            <p>{% render_field form.first_name class+="form-control" placeholder="Yurii" %}</p>
+                            <label>Last Name: </label>
+                            <p>{% render_field form.last_name class+="form-control" placeholder="Mysiura" %}</p>
+                            <label>Date Of Birth: </label>
+                            <p>{% render_field form.birth_date class+="form-control" placeholder="1991-08-05" %}</p>
+                        </div>
+                        <div class="col-xs-12 col-sm-6">
+                            <label>Home Addres:</label>
+                            <p>{% render_field form.address class+="form-control" placeholder="My address" %}</p>
+                            <label>Email Address:</label>
+                            <p>{% render_field form.email class+="form-control" placeholder="My email" %}</p>
+                            <label>Phone Number:</label>
+                            <p>{% render_field form.phone class+="form-control" placeholder="My phone number" %}</p>
+                        </div>
+                    </div>
+                    <div class="col-sm-12">
+                        <div class="col-xs-12 col-sm-12">
+                            <label>Biography:</label>
+                            <p>{% render_field form.bio class+="form-control" placeholder="My bio" %}</p>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 text-center">
+                        <div class="col-xs-12 col-sm-6">
+                            <input class="btn btn-success btn-block" type="submit" value="SAVE" />
+                        </div>
+                        <div class="col-xs-12 col-sm-6">
+                            <a href="/tasks/view_requests/" class="btn btn-info btn-block">VIEW HTTP REQUESTS</a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}

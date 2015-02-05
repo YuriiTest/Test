@@ -1,0 +1,24 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>JBS TASKS</title>
+    <!--CSS-->
+    <link rel="stylesheet" type="text/css" href="{% static 'tasks/css/bootstrap.min.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'tasks/css/style.css' %}" />
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet'  type='text/css'>
+    <!--JavaScript-->
+    <script type="text/javascript" src="{% static 'tasks/js/jquery-2.1.3.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'tasks/js/upload.js' %}"></script>
+    <!--Fonts-->
+    <link href='http://fonts.googleapis.com/css?family=Raleway:400,200' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Tangerine">
+</head>
+<body>
+<div class="container">
+    {% block content %}
+    {% endblock %}
+</div>
+</body>
+</html>

@@ -1,0 +1,33 @@
+[
+  {
+    "model": "auth.user",
+    "fields": {
+      "username": "admin",
+      "groups": [],
+      "is_superuser": true,
+      "first_name": "",
+      "last_name": "",
+      "password": "pbkdf2_sha256$15000$Nx8xwnG4G454$uIsctfzqtfX/XwPMfaYBFQ1zU7TCLc2k+ix2zo3lxXI=",
+      "is_staff": true,
+      "last_login": "2015-01-27T23:53:55.726Z",
+      "email": "admin@admin.com",
+      "date_joined": "2015-01-22T16:40:11.634Z",
+      "user_permissions": [],
+      "is_active": true},
+    "pk": 1
+  },
+  {
+    "model": "tasks.information",
+    "fields": {
+      "birth_date": "1991-08-05",
+      "email": "yuriimys@gmail.com",
+      "bio": "My bio My bio My bio My bio My bio My bio",
+      "address": "My address My address My address My address",
+      "photo": "",
+      "first_name": "Yurii",
+      "last_name": "Mysiura",
+      "phone": "My phone number"
+    },
+    "pk": 1
+  }
+]

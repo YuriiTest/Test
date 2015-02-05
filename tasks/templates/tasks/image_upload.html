@@ -1,0 +1,46 @@
+<div class="col-xs-12 col-sm-12 text-center">
+    <figure>
+        {% if form_upload %}
+            {% for field in form_upload %}
+                {% if field.errors %}
+                    <div class="col-sm-12">
+                        <div class="alert alert-danger" role="alert" id="alert_error">
+                            {{ field.errors|striptags }} <br/>
+                        </div>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        {% endif %}
+        {% if success %}
+            <div class="col-sm-12">
+                <div class="alert alert-success" role="alert" id="alert_error">
+                    <p>Photo was successfully uploaded.</p>
+                    <p>Now you can choose it from the list below.</p>
+                </div>
+            </div>
+        {% endif %}
+        {% if  form.photo.value %}
+            <img width="250" src="{{ MEDIA_URL }}{{ form.photo.value }}" alt="" class="img-thumbnail img-responsive" id="uploadPreview">
+        {% else %}
+            <img width="250" src="{{ form.photo.field.initial }}" alt="" class="img-thumbnail img-responsive" id="uploadPreview">
+        {% endif %}
+        <figcaption>
+            <p>You can upload new photo</p>
+            <div class="row-fluid">
+                <div class="control-group">
+                    <form action="/tasks/edit/" method="POST" enctype="multipart/form-data" id="upload_form">
+                        {% csrf_token %}
+                        <div class="controls clearfix">
+                            <span class="btn btn-info btn-file">
+                                <span>Select photo to upload ...</span>
+                                <input type="file" name="photo" id="uploadImage" onchange="PreviewImage()" />
+                            </span>
+                            <input class="btn btn-success" id="display" type="submit" value="Start upload" />
+                        </div>
+                    </form>
+                    OR
+                </div>
+            </div>
+        </figcaption>
+    </figure>
+</div>

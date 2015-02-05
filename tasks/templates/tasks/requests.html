@@ -1,0 +1,37 @@
+{% extends "tasks/base.html" %}
+{% block content %}
+    <div class="row">
+        <div class="well">
+                {% if middleware %}
+                    <table class="table table-bordered table table-condensed">
+                        <thead>
+                        <tr>
+                            <th class="text-center">TIME</th>
+                            <th class="text-center">METHOD</th>
+                            <th class="text-center">HTTP_REFERER</th>
+                            <th class="text-center">PATH</th>
+                            <th class="text-center">FILES</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for row in middleware %}
+                            <tr>
+                                <td class="text-center">{{ row.date_time }}</td>
+                                <td class="text-center">{{ row.method }}</td>
+                                <td class="text-center">{{ row.http_referer }}</td>
+                                <td class="text-center">{{ row.path }}</td>
+                                <td class="text-center">{{ row.files }}</td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                {% else %}
+                    <h3 class="text-left">There are no http requests yet.</h3>
+                {% endif %}
+                <!--<h4>Test settings and admin edit page link</h4>
+                {#% load tasks_link %#}
+                <p>ROOT_URLCONF - {# ROOT_URLCONF #}</p>
+                <p>{#% edit_link user %#}</p>-->
+        </div>
+    </div>
+{% endblock %}
