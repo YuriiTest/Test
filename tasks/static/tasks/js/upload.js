@@ -1,7 +1,7 @@
 $(document).ready(function()
 {
     if (document.getElementById('uploadPreview')){
-        defaultImage =  $('#uploadPreview').attr("src");
+        window.defaultImage =  $('#uploadPreview').attr("src");
     }
 });
 
