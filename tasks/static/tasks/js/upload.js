@@ -1,7 +1,7 @@
 $(document).ready(function()
 {
     if (document.getElementById('uploadPreview')){
-        def_img =  $('#uploadPreview').attr("src");
+        defaultImage =  $('#uploadPreview').attr("src");
     }
 });
 
@@ -24,13 +24,13 @@ function PreviewImage()
 
 function PreviewImageSelect()
 {
-    var selected_value = $("#id_select").val();
-    if (selected_value == "")
+    var selectedValue = $("#id_select").val();
+    if (selectedValue === "")
     {
-        $('#uploadPreview').attr("src", def_img);
+        $('#uploadPreview').attr("src", defaultImage);
     }
     else
     {
-        $('#uploadPreview').attr("src", "/media/" + selected_value);
+        $('#uploadPreview').attr("src", "/media/" + selectedValue);
     }
 }
