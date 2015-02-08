@@ -1,8 +1,8 @@
 from django.shortcuts import render_to_response, redirect
 from django.template import RequestContext
-from tasks.models import Information, ImageUpload, Middleware
 from django.contrib import auth
 from django.core.context_processors import csrf
+from tasks.models import Information, ImageUpload, Middleware
 from tasks.forms import InformationForm, ImageUploadForm
 
 
@@ -77,6 +77,6 @@ def view_requests(request):
     args = {
         'middleware': Middleware.objects.all().order_by('-id')[:10],
         # Added user object for testing task 6
-        'user': request.user
+        'information': Information.objects.get()
     }
     return render_to_response('tasks/requests.html', args, context_instance=RequestContext(request))
